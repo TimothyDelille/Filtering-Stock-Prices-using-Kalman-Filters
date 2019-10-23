@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Filtering Stock Prices using the Kalman Filter"
+    "# Kalman Filtering of Stock Prices"
    ]
   },
   {
