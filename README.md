@@ -6,8 +6,8 @@ If we denote $X_t$ the price of some stock $X$ at time $t \geq 0$, the multiplic
 
 The model we will assume for stock price movement is the log-normal process, meaning, the logarithm of the stock price is assumed to exhibit a random walk.
 
-We can model the price as a continuously compounded return:
-$$X_t = e^{r_t t}$$
+We can model the price as a continuously compounded interest rate:
+$$X_t = X_0 e^{r_t t}$$
 
 Thus, the multiplicative return between two time steps $t$ and $t+1$ is given by:
 $$\frac{X_{t+1}-X_t}{X_t} = \frac{e^{r_{t+1} (t+1)} - e^{r_t t}}{e^{r_t t}} = e^{r_{t+1} (t+1) - r_t t} - 1 \underbrace{=}_{\text{Taylor expansion}} r_{t+1} (t+1) - r_t t + O(t^2)$$
