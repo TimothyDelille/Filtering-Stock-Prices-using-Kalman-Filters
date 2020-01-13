@@ -6,19 +6,18 @@ If we denote $X_t$ the price of some stock $X$ at time $t \geq 0$, the multiplic
 
 The model we will assume for stock price movement is the log-normal process, meaning, the logarithm of the stock price is assumed to exhibit a random walk.
 
-We can model the price as a continuously compounded interest rate:
-$$X_t = X_0 e^{r_t t}$$
+We can model the price as a geometric Brownian motion process:
+$$X(t) = X(0) e^{\nu t + \sigma z(t)}$$
+Where $\mu$ and $\sigma \geq 0$ are constants and $z$ is a standard Wiener process.
+The price $X(t)$ has a lognormal distribution $ln X(t) - ln X(0) \sim N(\nu t, \sigma^2 t)$
 
-Thus, the multiplicative return between two time steps $t$ and $t+1$ is given by:
-$$\frac{X_{t+1}-X_t}{X_t} = \frac{e^{r_{t+1} (t+1)} - e^{r_t t}}{e^{r_t t}} = e^{r_{t+1} (t+1) - r_t t} - 1 \underbrace{=}_{\text{Taylor expansion}} r_{t+1} (t+1) - r_t t + O(t^2)$$
-
-Moreover:
-$$log(X_{t+1}) - log(X_t) = log(e^{r_{t+1} (t+1)}) - log(e^{r_t t}) = r_{t+1}(t+1) - r_t$$
+Thus, the multiplicative return between two time steps $t$ and $t+dt$ is given by:
+$$\frac{X(t+dt) - X(t)}{X(t)} = \frac{d X(t)}{X(t)} = d ln X(t) = \nu dt + \sigma dz$$  
 
 Meaning, we can consider that:
-$$log(X_{t+1}) - log(X_t) \approx \frac{X_{t+1}-X_t}{X_t}$$
+$$ln(X_{k+1}) - ln(X_k) \approx \frac{X_{k+1}-X_k}{X_k}$$
 
-If the returns $\frac{X_{t+1}-X_t}{X_t}$ follow a normal distribution, since we can approximate it by $log(X_{t+1}) - log(X_t)$ it means the increments of the logarithm of the prices are drawing from a normal distribution. Therefore, we can model the returns as a white noise process and the logarithm of the stock price will exhibit a random walk.
+If the returns $\frac{X_{k+1}-X_k}{X_k}$ follow a normal distribution, since we can approximate it by $ln(X_{k+1}) - ln(k_t)$ it means the increments of the logarithm of the prices are drawing from a normal distribution. Therefore, we can model the returns as a white noise process and the logarithm of the stock price will exhibit a random walk.
 
 In order to gauge the plausibility of this assumption, let us plot a Q-Q plot of Google (GOOGL) returns against a normal distribution.
 
